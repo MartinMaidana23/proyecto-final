@@ -1,0 +1,85 @@
+<div class="titulo">
+    <h1>Alta</h1>
+</div>
+<form autocomplete="off" class="form form__alta">
+    <!-- Nombre -->
+    <div class="form__alta--div--input">
+        <input placeholder="Nombre" type="text" class=" input form__input" id="nombre" required="">
+        <div></div>
+    </div>
+    <!-- Precio -->
+    <div class="form__alta--div--input">
+        <input placeholder="Precio" type="number" class="input form__input" id="precio" required="">
+        <div></div>
+    </div>
+
+    <!-- Stock -->
+    <div class="form__alta--div--input">
+        <input placeholder="Stock" type="number" class=" input form__input" id="stock" required="">
+        <div></div>
+    </div>
+
+    <!-- Marca -->
+    <div class="form__alta--div--input">
+        <input placeholder="Marca" type="text" class=" input form__input" id="marca" required="">
+        <div></div>
+    </div>
+
+    <!-- Categoria -->
+    <div class="form__alta--div--input">
+        <input placeholder="Categoria" type="text" class=" input form__input" id="categoria" required="">
+        <div></div>
+    </div>
+
+    <!-- Detalles -->
+    <div class="form__alta--div--input">
+        <input placeholder="Detalles" type="text" class=" input form__input" id="detalles" required="">
+        <div></div>
+    </div>
+
+    <!-- Foto -->
+    <div id="drop-area">
+        <p>Subir imagen al servidor con <b>file dialog</b> o con <b>drag and drop</b> dentro del area punteada</p>
+        <br>
+        <br>
+        <input type="file" id="foto" accept="image/*">
+        <label for="foto" class="btn">File Dialog</label>
+        <br>
+        <br>
+        <progress id="progress-bar" max="100" value="0"></progress>
+        <div id="gallery"><img src="" alt=""></div>
+    </div>
+
+    <!-- Envio -->
+    <label for="envio" class="label form__alta--checkbox--cont"> Envio 
+        <input placeholder="Envio" type="checkbox" class="form__alta--input form__alta--checkbox" id="envio" checked="">
+        <span class="form__alta--checkbox--span"></span>
+    </label>
+    <div></div>
+
+    <button class="btn form__alta--btn">Agregar</button>
+</form>
+
+<hr>
+<div class="titulo">
+    <h2>Listado de productos</h2>
+</div>
+<hr>
+
+<div id="listado-productos">
+    <table class="table">
+        <tr>
+            <td>Nombre</td>
+            <td>Precio</td>
+            <td>Stock</td>
+            <td>Marca</td>
+            <td>Categoria</td>
+            <td>Detalles</td>
+            <td>Fotos</td>
+            <td>Envios</td>
+        </tr>
+    </table>
+</div>
+    
+    
+        

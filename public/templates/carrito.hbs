@@ -1,0 +1,50 @@
+<button class="btn cerrar-carrito" onclick="carritoController.cerrarCarrito()">Cerrar</button>
+{{#if carrito.length}}
+    <button class="enviar btn btn__enviarCarrito" onclick="carritoController.enviarCarrito()" id="enviar-carrito">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                </svg>
+              </div>
+            </div>
+            <span>Enviar</span>
+        </button>
+    <table class="table">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Marca</th>
+            <th>Foto</th>
+            <th>Cantidad</th>
+            <th>Envio</th>
+            <th>Accion</th>
+        </tr>
+        {{#each carrito}}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>${{precioTotal}}</td>
+                <td>{{marca}}</td>
+                <td><img style="display: block; margin:0 auto;" width="50" src="{{foto}}" alt="{{nombre}}"></td>
+                <td class="cantidades">
+                    <button class="btn cantidad" onclick="carritoController.descontarDelCarrito({{id}})">-</button>
+                    {{cantidad}}
+                    <button class="btn cantidad" onclick="carritoController.sumarDelCarrito({{id}})">+</button></td>
+                {{#if envio}}
+                    <td>Si</td>
+                {{else}}
+                    <td>No</td>
+                {{/if}}
+                <td><button class="btn" onclick="carritoController.borrarDelCarrito({{id}})">Borrar</button></td>
+            </tr>
+        {{/each}}
+    </table>
+    <div class="total">
+        <h2 class="totales"></h2>
+        <h2 class="totales"></h2>
+    </div>
+{{else}}
+    <h2>El carrito esta vacio <span>&#128549;</span></h2>
+    <button onclick="redirecciones.enviarAInicio()" class="btn">Ir a comprar</button>
+{{/if}}
