@@ -1,4 +1,3 @@
-const { model } = require('mongoose')
 const service = require('../services/productos')
 
 const getProductos = async (req,res)=>{
@@ -40,14 +39,18 @@ const actualizarProducto = async (req,res)=>{
 }
 
 const borrarProducto = async (req,res)=>{
-    const id = req.params.id
+    try {
+        const id = req.params.id
 
-    if (!id) {
-        return res.status(400).json('No se ha especificado un id de producto')
+        if (!id) {
+            return res.status(400).json('No se ha especificado un id de producto')
+        }
+
+        const prodBorrado = await service.borrarProducto(id)
+        res.status(200).json(prodBorrado)
+    } catch (error) {
+        console.log('Error al eliminar el producto', error);
     }
-
-    const prodBorrado = await service.borrarProducto(id)
-    res.status(200).json(prodBorrado)
 }
 
 module.exports = {

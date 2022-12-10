@@ -20,9 +20,6 @@ app.use('/api/carrito', routerCarrito)
 app.use('/api/upload', routerUpload)
 //</routes>
 
-app.get('/',(req,res)=>{
-    res.json('todo piola')
-})
 
 app.listen(PORT, err=>{
     if(err) throw new Error(err)

@@ -1,5 +1,5 @@
 class CarritoService{
-    URL_CARRITO='https://633ccbdff2b0e623dc67cdfd.mockapi.io/carrito/'
+    URL_CARRITO='/api/carrito'
 
     async guardarCarritoService(carrito){
         const carritoGuardado = await http.post(this.URL_CARRITO, carrito)
