@@ -4,12 +4,12 @@ class FormularioAlta {
     button = null
     camposValidos = [false, false, false, false, false, false]
     regExpValidar = [
-      /^.+$/, // regexp nombre
-      /^.+$/, // regexp precio
-      /^[0-9]+$/, // regexp stock
-      /^.+$/, // regexp marca
-      /^.+$/, // regexp categoria
-      /^.+$/, // regexp detalles
+      /^.+$/, // nombre
+      /^.+$/, // precio
+      /^[0-9]+$/, // stock
+      /^.+$/, // marca
+      /^.+$/, // categoria
+      /^.+$/, // detalles
     ]
   
     //<drag and drop>
@@ -208,7 +208,7 @@ class FormularioAlta {
   const renderTablaAlta = (validos, productos) => {
     
     const xhr = new XMLHttpRequest()
-    xhr.open("get", "plantillas/alta.hbs")
+    xhr.open("get", "templates/alta.hbs")
     xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         let plantillaHbs = xhr.response

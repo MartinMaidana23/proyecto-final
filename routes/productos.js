@@ -2,16 +2,16 @@ const express = require('express')
 const routerProductos = express.Router()
 const controller = require('../controller/productos')
 
-// get all / one
+/* Get all/one */
 routerProductos.get('/:id?', controller.getProductos)
 
-// post
+/* POST */
 routerProductos.post('/', controller.guardarProducto)
 
-//edit
+/* EDIT */
 routerProductos.put('/:id', controller.actualizarProducto)
 
-// delete
+/* DELETE */
 routerProductos.delete('/:id', controller.borrarProducto)
 
 module.exports = routerProductos

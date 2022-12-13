@@ -1,24 +1,23 @@
-const {model} = require('mongoose')
+const { model } = require('mongoose');
+const ProductoModelFile = require('./productosFile');
 
-const ProductoModelFile = require('./productosFile')
 const ProductoModelMongoDB = require('./productosMongoDB')
 
 class ProductoModel{
     static get(tipo){
         switch (tipo) {
             case 'MONGODB':
-                console.log('Persistencia en MONGODB (productos)');
+                console.log('PERSISTENCIA EN MONGODB (productos)');
                 const mongodb = new ProductoModelMongoDB()
                 mongodb.conectarDB()
                 return mongodb
-
+        
             case 'FILE':
-                console.log('Persistencia en FILE');
+                console.log('PERSISTENCIA EN FILE (productos)');
                 const file = new ProductoModelFile()
                 return file
-        
             default:
-                console.log('No se especifico ningun tipo');
+                console.log('No paso ningun tipo');
                 break;
         }
     }

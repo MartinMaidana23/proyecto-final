@@ -1,4 +1,4 @@
-const {json} = require('express')
+const { json } = require('express')
 const fs = require('fs')
 
 class ProductoModelFile{
@@ -6,12 +6,16 @@ class ProductoModelFile{
 
     async leerArchivoProductos(){
         try {
-            let productos = await JSON.parse(await fs.promises.readFile(this.nombreArchivo, 'UTF-8'))
-            return productos
+            try {
+                let productos = await JSON.parse(await fs.promises.readFile(this.nombreArchivo, 'UTF-8'))
+                return productos
+            } catch (error) {
+                console.log('Error en leerArchivo', error);
+                let productos = []
+                return productos
+            }
         } catch (error) {
-            console.log('Error al leer el archivo', error);
-            let productos = []
-            return productos
+            
         }
     }
 
@@ -20,69 +24,49 @@ class ProductoModelFile{
     }
 
     async guardarArchivoProductos(productos){
-        try {
-            await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(productos,null, '\t'))
-        } catch (error) {
-            console.log('Error en guardar archivo', error);
-        }
+        await fs.promises.writeFile(this.nombreArchivo, JSON.stringify(productos, null, '\t'))
     }
 
     async createProducto(producto){
-        try {
-            let productos = await this.leerArchivoProductos()
+        let productos = await this.leerArchivoProductos()
 
-            producto.id = this.getId(productos)
-            productos.push(producto)
+        producto.id = this.getId(productos)
+        productos.push(producto)
 
-            await this.guardarArchivoProductos(productos)
-            return productos
-        } catch (error) {
-            console.log('Error en crear producto', erro);
-        }
+        await this.guardarArchivoProductos(productos)
+        return producto
     }
 
     async readProductos(){
-        try {
-            let productos = await this.leerArchivoProductos()
-            return productos
-        } catch (error) {
-            console.log('Error al leer los productos', error);
-        }
+        let productos = await this.leerArchivoProductos()
+        return productos
     }
 
     async readProducto(id){
-        try {
-            const productos = await this.leerArchivoProductos()
-            const producto = productos.find(prod=>prod.id===id)
-            return producto
-        } catch (error) {
-            console.log('Error al leer el producto', error);
-        }
+        const productos = await this.leerArchivoProductos()
+
+        const producto = productos.find(prod=>prod.id==id) || {}
+        return producto
     }
 
     async deleteProducto(id){
-        try {
-            const productos = await this.leerArchivoProductos()
-            const index = productos.findIndex(prod=>prod.id===id)
-            const producto = productos.splice(index, 1)[0]
+        const productos = await this.leerArchivoProductos()
 
-            return producto
-        } catch (error) {
-            console.log('Error al borrar el producto', error);
-        }
+        const index = productos.findIndex(prod=>prod.id==id)
+        const producto = productos.splice(index,1)[0]
 
+        return producto
     }
 
-    async updateProducto(id, producto){
-        try {
-            const productos = await this.leerArchivoProductos()
+    async updateProducto(id,producto){
+        const productos = await this.leerArchivoProductos()
 
-            producto.id = id
-            const index = productos.findIndex(prod=>prod.id===id)
-            productos.splice(index,1,producto)
-        } catch (error) {
-            console.log('Error al actualizar el producto', error);
-        }
+        productos.id = id
+        const index = productos.findIndex(prod=>prod.id == id)
+        productos.splice(index,1,producto)
+
+        await this.guardarArchivoProductos(productos)
+        return producto
     }
 }
 

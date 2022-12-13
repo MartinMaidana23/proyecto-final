@@ -1,0 +1,12 @@
+{
+    "_id": "6399007d6cc9463fbde099e4",
+    "nombre": "anana",
+    "precio": 123,
+    "stock": 21,
+    "marca": "biomac",
+    "detalles": "anana 1kg cvongelado",
+    "foto": "/uploads/1670971513680-code.png",
+    "envio": true,
+    "__v": 0,
+    "id": "6399007d6cc9463fbde099e4"
+}

@@ -22,7 +22,7 @@ function agregarCarrito(e,id,ref){
 }
 
 async function initInicio(){
-    console.warn('InitInicio');
+    console.warn('InitInicio()');
 
     carritoController.notificador.classList.add('search-bar__carrito-container--notificador')
     carritoController.containerCarrito.appendChild(carritoController.notificador)

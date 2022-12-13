@@ -1,14 +1,14 @@
-const CarritoModelMongoDB = require('./carritoMongoDB')
+const CarritoModelMongoDB = require("./carritoMongoDB");
 
-class CarritoModel{
+class CarritoModel {
     static get(tipo){
         switch (tipo) {
             case 'MONGODB':
-                console.log('persistencia en MONGODB (carrito)')
+                console.log('PERSISTENCIA EN MONGODB(carrito)')
                 return new CarritoModelMongoDB()
         
             default:
-                console.log('persistencia en MONGODB (carrito)')
+                console.log('PERSISTENCIA EN MONGODB(carrito)')
                 return new CarritoModelMongoDB()
         }
     }
