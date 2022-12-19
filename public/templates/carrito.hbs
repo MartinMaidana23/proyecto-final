@@ -28,15 +28,15 @@
                 <td>{{marca}}</td>
                 <td><img style="display: block; margin:0 auto;" width="50" src="{{foto}}" alt="{{nombre}}"></td>
                 <td class="cantidades">
-                    <button class="btn cantidad" onclick="carritoController.descontarDelCarrito({{id}})">-</button>
+                    <button class="btn cantidad" onclick="carritoController.descontarDelCarrito('{{id}}')">-</button>
                     {{cantidad}}
-                    <button class="btn cantidad" onclick="carritoController.sumarDelCarrito({{id}})">+</button></td>
+                    <button class="btn cantidad" onclick="carritoController.sumarDelCarrito('{{id}}')">+</button></td>
                 {{#if envio}}
                     <td>Si</td>
                 {{else}}
                     <td>No</td>
                 {{/if}}
-                <td><button class="btn" onclick="carritoController.borrarDelCarrito({{id}})">Borrar</button></td>
+                <td><button class="btn" onclick="carritoController.borrarDelCarrito('{{id}}')">Borrar</button></td>
             </tr>
         {{/each}}
     </table>

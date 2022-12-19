@@ -10,7 +10,7 @@ class FormularioContacto{
         /^.+$/,//consulta
     ]
 
-    constructor(enviarConsulta){
+    constructor(){
         this.inputs = document.querySelectorAll('.form__contacto .input')
         this.form = document.getElementsByClassName('form__contacto')[0]
 
@@ -24,13 +24,15 @@ class FormularioContacto{
             e.preventDefault()
 
             const consulta = this.leerConsulta()
+            contactoController.enviarConsulta(consulta)
             this.cleanForm()
 
-            if(enviarConsulta) enviarConsulta(consulta)
         })
 
         
     }
+
+    
 
     //comprobar validez campos
     algunCampoValido = () =>{
@@ -89,5 +91,5 @@ let fContacto;
 function initContacto() {
     console.warn('initContacto()');
 
-    fContacto = new FormularioContacto(contactoController.enviarConsulta)
+    fContacto = new FormularioContacto()
 }

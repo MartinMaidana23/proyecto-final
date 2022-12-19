@@ -36,8 +36,8 @@ class FormularioAlta {
       this.form.addEventListener("submit", (e) => {
         e.preventDefault()
   
-        const producto = this.leerProductoIngresado()
-        this.limpiarFormulario()
+        const producto = this.leerProdIngresado()
+        this.cleanForm()
   
         if(guardarProducto) guardarProducto(producto)
       })
@@ -121,7 +121,7 @@ class FormularioAlta {
       divs[index].style.display = mensaje ? "block" : "none"
     }
   
-    leerProductoIngresado() {
+    leerProdIngresado() {
       return {
         nombre: this.inputs[0].value,
         precio: this.inputs[1].value,
@@ -134,7 +134,7 @@ class FormularioAlta {
       }
     }
   
-    limpiarFormulario() {
+    cleanForm() {
       this.inputs.forEach(input => {
         if (input.type != "checkbox") input.value = ""
         else if (input.type == "checkbox") input.checked = false
