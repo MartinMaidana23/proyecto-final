@@ -6,6 +6,6 @@ const routerCarrito = express.Router()
 /* POST para agregar producto al carrito */
 routerCarrito.post('/', controller.guardarCarrito)
 
-routerCarrito.get('feedback', controllerPago.feedBack)
+routerCarrito.get('/feedback', controllerPago.feedBack)
 
 module.exports = routerCarrito

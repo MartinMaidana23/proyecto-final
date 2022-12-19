@@ -4,7 +4,7 @@ const mercadopago = new MercadoPago("TEST-81adcb9e-67a1-4241-a2f8-bd694f7b1838",
 
 
 async function renderPago(preference) {
-    let html = await fetch('vistas/pago.html').then(r => r.text())
+    let html = await fetch('views/pago.html').then(r => r.text())
 
     document.querySelector('main').style.display = 'none'
     document.querySelector('.section-pago').innerHTML = html

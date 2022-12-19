@@ -3,7 +3,7 @@ const service = require('../services/carrito')
 
 const guardarCarrito = async (req, res) => {
     const carrito = req.body
-    const carritoGuardado = await service.guardarCarrito(carrito)
+    const carritoGuardado = await service.guardarCarrito(carrito) // array de productos => [{}, {}]
     
     let items = []
     for(let item of carritoGuardado) {
@@ -26,7 +26,7 @@ const guardarCarrito = async (req, res) => {
 		auto_return: "approved",
 	};
 
-	mercadopago.preferences.create(preference)
+	mercadopago.preferences.create(preference) // Promesa
 		.then(function (response) {
 			res.json({
 				id: response.body.id, items

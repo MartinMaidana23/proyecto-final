@@ -21,7 +21,7 @@ app.use('/api/upload',routerUpload )
 
 
 app.get('/', (req,res)=>{
-    res.send('todo piola')
+    res.send('todo correcto')
 })
 
 

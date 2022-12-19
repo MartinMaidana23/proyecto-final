@@ -125,13 +125,17 @@ class CarritoController extends CarritoModel {
         try {
             const btnEnvioCarrito = document.querySelector('#enviar-carrito')
             btnEnvioCarrito.textContent = 'Enviando carrito...'
-            await carritoService.guardarCarritoService(this.carrito)
+            const preference =await carritoService.guardarCarritoService(this.carrito)
 
             this.carrito=[]
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
 
             btnEnvioCarrito.textContent = 'Carrito enviado con exito!'
-            setTimeout(()=>{location.reload()},1200)
+            setTimeout(async()=>{
+                const carrito = document.getElementsByClassName('section-carrito--visible')[0]
+                carrito.classList.remove('section-carrito--visible')
+                await renderPago(preference)
+            },0)
             
         } catch (error) {
             console.error(error);
