@@ -31,21 +31,15 @@ class ProductoModelMongoDB {
         }
     }  
 
-    genIdKey(obj) {
-
-        console.log(obj);
-
-        if(Array.isArray(obj)) {
+    genIdKey(obj) { 
+        if(Array.isArray(obj)) { // true o false
             for(let i=0; i<obj.length; i++) {
-                obj[i].id = obj[i][this.pk]
-                console.log(obj[i][this.pk]);
+                obj[i].id = obj[i][this.pk] // this._id => this.id
             }
         }
         else {
-            obj.id = obj[this.pk]
+            obj.id = obj[this.pk] // this._id => this.id
         }
-
-        console.log(obj);
 
         return obj
     }

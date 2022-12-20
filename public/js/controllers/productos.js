@@ -22,7 +22,7 @@ class ProductoController extends ProductoModel{
         formularioAlta.cleanForm()
     
         let prodActualizado = await productoService.actualizarProductoService(id, producto)
-        const index = this.productos.findIndex(prod=>prod.id == prodActualizado.id)
+        const index = this.productos.findIndex(prod=>prod.id == prodActualizado._id)
 
         this.productos.splice(index,1,prodActualizado)
 
@@ -31,8 +31,9 @@ class ProductoController extends ProductoModel{
     
     async borrarProd(id) {
         let prodBorrado = await productoService.borrarProdService(id)
+        console.log(prodBorrado);
     
-        const index = this.productos.findIndex(prod=>prod.id==prodBorrado.id)
+        const index = this.productos.findIndex(prod=>prod.id==prodBorrado._id)
         
         this.productos.splice(index,1)
     
