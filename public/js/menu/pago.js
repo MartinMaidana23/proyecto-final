@@ -25,11 +25,11 @@ async function renderPago(preference) {
         total += subtotal
 
         refItems.innerHTML += `
-            <span class="price" class="summary-price">${subtotal}</span>
+            <span class="price" class="summary-price">$ ${subtotal}</span>
             <p class="item-name">${title} x <span class="summary-quantity">${quantity}</span></p>
         `
     }
-    refTotal.innerHTML = total
+    refTotal.innerHTML = `$ ${total}`
 
 
     // Go back
