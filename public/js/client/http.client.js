@@ -1,14 +1,15 @@
 class Http{
 
     //get
-    async get(url, id) {
+    async get(url, id, nombre) {
         try {
-            const response = await fetch(url + (id || ''), {method: 'get'})
+            const response = await fetch(url + (id || '') + (nombre || ''), {method: 'get'})
             const resultado = await response.json()
             return resultado
         } catch (error) {
             console.error('ERROR GET: ', error)
         }
+
     }
 
     // post

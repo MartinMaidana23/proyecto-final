@@ -4,6 +4,8 @@ class ProductoController extends ProductoModel{
         this.guardarProducto = this.guardarProducto.bind(this)
     }
 
+    
+
     async obtenerProductos() {
         this.productos = await productoService.obtenerProductosService()
         return this.productos

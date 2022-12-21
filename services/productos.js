@@ -14,6 +14,11 @@ const obtenerProductos = async () =>{
     return productos
 }
 
+const leerProducto = async (name)=>{
+    const producto = await model.findProducto(name)
+    return producto
+}
+
 const guardarProducto = async (producto) => {
     const errorValidacion =  ProductoValidation.validar(producto)
 
@@ -51,5 +56,6 @@ module.exports = {
     obtenerProductos,
     guardarProducto,
     borrarProducto,
-    actualizarProducto
+    actualizarProducto,
+    leerProducto
 }

@@ -10,6 +10,8 @@ class ProductoService{
         const prodGuardado = await http.post(this.URL_PRODUCTOS, producto)
         return prodGuardado
     }
+
+    
     
     async actualizarProductoService(id, producto){
         const prodActualizado = await http.put(this.URL_PRODUCTOS, id, producto)

@@ -25,6 +25,23 @@ const guardarProducto = async (req,res)=>{
         console.log('Error guardando producto', error);
     }
 }
+
+const leerProducto = async (req,res) =>{
+    const nombre = req.params.nombre 
+
+    if (nombre) {
+        try {
+            const prodBuscado = await service.leerProducto(nombre)
+            res.status(201).json(prodBuscado)
+        } catch (error) {
+            console.log(error);
+        }
+    } else {
+        const productos = await service.obtenerProductos()
+        return res.status(200).json(productos)
+    }
+    
+}
 const actualizarProducto = async (req,res)=>{
     try {
         const {id} = req.params
@@ -51,5 +68,6 @@ module.exports = {
     getProductos,
     guardarProducto,
     actualizarProducto,
-    borrarProducto
+    borrarProducto,
+    leerProducto
 }

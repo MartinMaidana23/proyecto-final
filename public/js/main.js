@@ -97,3 +97,15 @@ class Main {
 
 const main = new Main()
 main.start()
+
+document.querySelector('#busqueda').addEventListener('input', (e)=>{
+    e.preventDefault()
+
+    initBuscador()
+})
+
+document.querySelector('header form').addEventListener('submit', (e)=>{
+    e.preventDefault()
+
+    initBuscador()
+})

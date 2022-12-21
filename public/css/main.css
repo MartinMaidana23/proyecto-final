@@ -113,6 +113,9 @@ body {
 .card__heading {
   color: #519872;
 }
+.card__heading::first-letter {
+  text-transform: capitalize;
+}
 @media (min-width: 340px) {
   .card__description {
     opacity: 1;

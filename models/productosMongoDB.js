@@ -88,6 +88,16 @@ class ProductoModelMongoDB {
         
     }
 
+    async findProducto(name){
+
+        try {
+            const producto = await ProductoModel.find({nombre: {$regex: name} }).lean()
+            return producto
+        } catch (error) {
+            console.log(`Error al encontrar el producto, ${error}`);
+        }
+    }
+
     /* CRUD -> U: UPDATE -> http method PUT */
     async updateProducto(id, producto) {
 
